@@ -3,6 +3,10 @@ import AuthorCard from "./AuthorCard";
 
 class BookCard extends React.Component {
   render() {
+    if (!this.props.book) {
+      return <div>Empty book</div>;
+    }
+
     const {
       book: { title, description, pages, language, progress, cover, author, minimum_price, suggested_price, collected_amount, expected_amount }
     } = this.props;
