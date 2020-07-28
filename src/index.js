@@ -3,6 +3,8 @@ import React from 'react';
 
 import App from "./App";
 
+import './index.css';
+
 const author = {
   'name': 'Andriy Burkov',
   'email': 'burkov@gmail.com',
