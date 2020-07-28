@@ -1,5 +1,5 @@
-import ReactDom from 'react-dom';
 import React from 'react';
+import ReactDomServer from 'react-dom/server';
 
 import App from "./App";
 
@@ -24,7 +24,6 @@ const book = {
   'expected_amount': 4000
 };
 
-ReactDom.render(
-  <App book={book} />,
-  document.getElementById('root')
-);
+const render = () => ReactDomServer.renderToString(<App book={book} />);
+
+export default render;
