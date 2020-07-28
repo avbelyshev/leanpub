@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BookCard from "./BookCard";
+import BooksList from "./BooksList";
 
 class App extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class App extends React.Component {
       <>
         <header style={styles.header}>Leanpub</header>
         <main style={styles.main}>
-          <BookCard book={this.props.book} />
+          <BooksList books={this.props.books} />
         </main>
         <footer style={styles.footer}>
           &copy; {new Date().getFullYear()}, Belyshev Alexander
