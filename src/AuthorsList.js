@@ -28,10 +28,10 @@ class AuthorsList extends React.Component {
             <AuthorCard author={author}/>
           </div>
         ))}
-        {((authorsCount > 3) && (!fullList)) &&
-          <button onClick={() => this.toggleList()}>Show all authors ({authorsCount})</button>
-          || fullList &&
-          <button onClick={() => this.toggleList()}>Hide authors</button>
+        {(authorsCount > 3) &&
+          <button onClick={() => this.toggleList()}>
+            {fullList ? 'Hide authors' : 'Show all authors ({authorsCount})'}
+          </button>
         }
       </div>
     );
