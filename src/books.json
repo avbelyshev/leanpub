@@ -19,7 +19,8 @@
     "minimum_price": 20,
     "suggested_price": 40,
     "collected_amount": 2000,
-    "expected_amount": 4000
+    "expected_amount": 4000,
+    "subscribers": 99
   },
   {
     "id": 2,
@@ -27,7 +28,7 @@
     "description": "Server and configuration management for humans",
     "pages": 443,
     "language": "English",
-    "progress": 1000,
+    "progress": 100,
     "cover": "https://d2sofvawe08yqg.cloudfront.net/ansible-for-devops/hero?1589381387",
     "authors": [
       {
@@ -62,6 +63,7 @@
     "minimum_price": 9.99,
     "suggested_price": 9.99,
     "collected_amount": 4000,
-    "expected_amount": 4000
+    "expected_amount": 4000,
+    "subscribers": 100
   }
 ]

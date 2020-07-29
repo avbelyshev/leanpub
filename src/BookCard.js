@@ -8,8 +8,10 @@ class BookCard extends React.Component {
     }
 
     const {
-      book: { title, description, pages, language, progress, cover, authors, minimum_price, suggested_price, collected_amount, expected_amount }
+      book: { title, description, pages, language, progress, cover, authors, minimum_price, suggested_price, collected_amount, expected_amount, subscribers }
     } = this.props;
+
+    console.log(subscribers)
 
     return (
       <>
@@ -25,6 +27,10 @@ class BookCard extends React.Component {
             <div style={styles.price}>Minimum price: {minimum_price}</div>
             <div style={styles.price}>Suggested price: {suggested_price}</div>
             <div>Progress {progress}% ({collected_amount} of {expected_amount})</div>
+            {(subscribers >= 100)
+              ? <div style={styles.popular}>Subscribers: {subscribers}</div>
+              : <div>Subscribers: {subscribers}</div>
+            }
           </div>
         </div>
         <AuthorsList authors={authors} />
@@ -65,5 +71,9 @@ const styles = {
     fontWeight: 'bold',
     fontSize: '1.05rem',
     letterSpacing: '.05rem'
+  },
+  popular: {
+    color: 'red',
+    fontWeight: 'bold',
   }
 }
