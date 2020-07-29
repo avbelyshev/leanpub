@@ -1,5 +1,6 @@
 import React from 'react';
 import AuthorsList from "./AuthorsList";
+import SubscriptionTerms from "./SubscriptionTerms";
 
 class BookCard extends React.Component {
   render() {
@@ -31,6 +32,7 @@ class BookCard extends React.Component {
               ? <div style={styles.popular}>Subscribers: {subscribers}</div>
               : <div>Subscribers: {subscribers}</div>
             }
+            <SubscriptionTerms />
           </div>
         </div>
         <AuthorsList authors={authors} />
