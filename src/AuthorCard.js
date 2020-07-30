@@ -33,7 +33,18 @@ const styles = {
     fontFamily: 'sans-serif'
   },
   imageBox: {
-    maxWidth: '200px'
+    borderRadius: '16px',
+    height: '32px',
+    lineHeight: '32px',
+    width: '32px',
+    backgroundColor: '#fff',
+    display: 'block',
+    fontSize: 0,
+    margin: 'auto',
+    overflow: 'hidden',
+    padding: 0,
+    textAlign: 'center',
+    verticalAlign: 'middle'
   },
   image: {
     width: '100%'

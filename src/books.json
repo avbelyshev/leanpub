@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "title": "The Hundred-Page Machine Learning Book",
+    "description": "Everything you really need to know in Machine Learning in a hundred pages.",
+    "pages": 100,
+    "language": "English",
+    "progress": 50,
+    "cover": "https://d2sofvawe08yqg.cloudfront.net/theMLbook/hero?1549509109",
+    "authors": [
+      {
+        "id": 1,
+        "name": "Andriy Burkov",
+        "email": "burkov@gmail.com",
+        "avatar": "https://d39qdlcrvnra4b.cloudfront.net/avatars/1475540/original/andriy.jpg?1546120595",
+        "about": "Andriy Burkov holds a PhD in Artificial Intelligence, he works as a senior data scientist and machine learning team leader at Gartner."
+      }
+    ],
+    "minimum_price": 20,
+    "suggested_price": 40,
+    "collected_amount": 2000,
+    "expected_amount": 4000,
+    "subscribers": 99
+  },
+  {
+    "id": 2,
+    "title": "Ansible for DevOps",
+    "description": "Server and configuration management for humans",
+    "pages": 443,
+    "language": "English",
+    "progress": 100,
+    "cover": "https://d2sofvawe08yqg.cloudfront.net/ansible-for-devops/hero?1589381387",
+    "authors": [
+      {
+        "id": 2,
+        "name": "Jeff Geerling",
+        "email": "jeff_geerling@gmail.com",
+        "avatar": "https://d39qdlcrvnra4b.cloudfront.net/avatars/209668/original/Social_Media_800px.jpg?1539382677",
+        "about": "Jeff Geerling is a developer who has worked in programming and DevOps-related positions for companies with thousands of servers."
+      },
+      {
+        "id": 3,
+        "name": "Jeff Geerling",
+        "email": "jeff_geerling@gmail.com",
+        "avatar": "https://d39qdlcrvnra4b.cloudfront.net/avatars/209668/original/Social_Media_800px.jpg?1539382677",
+        "about": "Jeff Geerling is a developer who has worked in programming and DevOps-related positions for companies with thousands of servers."
+      },
+      {
+        "id": 4,
+        "name": "Jeff Geerling",
+        "email": "jeff_geerling@gmail.com",
+        "avatar": "https://d39qdlcrvnra4b.cloudfront.net/avatars/209668/original/Social_Media_800px.jpg?1539382677",
+        "about": "Jeff Geerling is a developer who has worked in programming and DevOps-related positions for companies with thousands of servers."
+      },
+      {
+        "id": 5,
+        "name": "Jeff Geerling",
+        "email": "jeff_geerling@gmail.com",
+        "avatar": "https://d39qdlcrvnra4b.cloudfront.net/avatars/209668/original/Social_Media_800px.jpg?1539382677",
+        "about": "Jeff Geerling is a developer who has worked in programming and DevOps-related positions for companies with thousands of servers."
+      }
+    ],
+    "minimum_price": 9.99,
+    "suggested_price": 9.99,
+    "collected_amount": 4000,
+    "expected_amount": 4000,
+    "subscribers": 100
+  }
+]
