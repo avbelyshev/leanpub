@@ -12,8 +12,6 @@ class BookCard extends React.Component {
       book: { title, description, pages, language, progress, cover, authors, minimum_price, suggested_price, collected_amount, expected_amount, subscribers }
     } = this.props;
 
-    console.log(subscribers)
-
     return (
       <>
         <div style={styles.container}>
