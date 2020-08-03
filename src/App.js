@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BooksList from "./BooksList";
+import BooksList from "./components/book/List";
 
 class App extends React.Component {
   render() {

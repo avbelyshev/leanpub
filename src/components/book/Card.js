@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthorsList from "./AuthorsList";
+import AuthorsList from "../author/List";
 import SubscriptionTerms from "./SubscriptionTerms";
 
 class BookCard extends React.Component {
