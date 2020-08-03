@@ -1,10 +1,15 @@
 import React from 'react';
 
+import UserInfo from "./components/user/Info";
+
 class Header extends React.Component {
   render() {
     return (
       <>
-        <header style={styles.header}>Leanpub</header>
+        <header style={styles.header}>
+          <span style={styles.appName}>Leanpub</span>
+          <UserInfo />
+        </header>
       </>
     );
   }
@@ -20,6 +25,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  appName: {
     fontSize: '1.2rem',
     fontWeight: 'bold'
   }
