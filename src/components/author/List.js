@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthorCard from "./AuthorCard";
+import AuthorCard from "./Card";
 
 class AuthorsList extends React.Component {
   constructor(props) {

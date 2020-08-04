@@ -1,6 +1,7 @@
 import React from 'react';
-import AuthorsList from "./AuthorsList";
+import AuthorsList from "../author/List";
 import SubscriptionTerms from "./SubscriptionTerms";
+import FeedbackForm from "./FeedbackForm";
 
 class BookCard extends React.Component {
   render() {
@@ -34,6 +35,7 @@ class BookCard extends React.Component {
           </div>
         </div>
         <AuthorsList authors={authors} />
+        <FeedbackForm />
       </>
     )
   }
