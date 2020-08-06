@@ -2,24 +2,22 @@ import React from 'react';
 
 import AuthContext from "../../context/AuthContext";
 
-class UserInfo extends React.Component {
-  render() {
-    return (
-      <AuthContext.Consumer>
-        {
-          ({ firstName, lastName, avatarUrl }) =>
-            <div style={styles.container}>
-              <div style={styles.imageBox}>
-                <img style={styles.image} src={avatarUrl} />
-              </div>
-              <div style={styles.cardBody}>
-                <div>{firstName} {lastName}</div>
-              </div>
+const UserInfo = () => {
+  return (
+    <AuthContext.Consumer>
+      {
+        ({ firstName, lastName, avatarUrl }) =>
+          <div style={styles.container}>
+            <div style={styles.imageBox}>
+              <img style={styles.image} src={avatarUrl} />
             </div>
-        }
-      </AuthContext.Consumer>
-    );
-  }
+            <div style={styles.cardBody}>
+              <div>{firstName} {lastName}</div>
+            </div>
+          </div>
+      }
+    </AuthContext.Consumer>
+  );
 }
 
 export default UserInfo;
