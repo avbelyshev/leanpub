@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDomServer from 'react-dom/server';
 
-import App from "./App";
+import App from "./components/layout/App";
 
 const author = {
   'name': 'Andriy Burkov',
