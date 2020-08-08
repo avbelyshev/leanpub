@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SimilarBookCard = React.memo(({book, deleteBook }) => {
-  const { title, cover, authors } = book;
+  const { id, title, cover, authors } = book;
   const author = authors[0].name;
 
   return (
@@ -13,7 +13,7 @@ const SimilarBookCard = React.memo(({book, deleteBook }) => {
         <div style={styles.title}>{title}</div>
         <div>{author}</div>
       </div>
-      <button onClick={() => deleteBook()}>X</button>
+      <button onClick={() => deleteBook(id)}>X</button>
     </div>
   )
 })

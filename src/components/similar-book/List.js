@@ -6,6 +6,7 @@ class SimilarBooksList extends React.PureComponent {
     super(props);
 
     this.state = { books: this.props.books };
+    this.deleteBook = this.deleteBook.bind(this);
   }
 
   deleteBook(id) {
@@ -18,7 +19,7 @@ class SimilarBooksList extends React.PureComponent {
         <div>Similar books:</div>
         {this.state.books.slice(0, 3).map(book => (
           <div key={book.id} style={styles.item}>
-            <SimilarBookCard book={book} deleteBook={() => this.deleteBook(book.id)} />
+            <SimilarBookCard book={book} deleteBook={this.deleteBook} />
           </div>
         ))}
       </div>
