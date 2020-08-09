@@ -19,6 +19,8 @@ class BookContainer extends React.Component {
     this.state = {
       records: null
     }
+
+    this._mapFromAirtable = this._mapFromAirtable.bind(this);
   }
 
   componentDidMount() {
@@ -59,7 +61,7 @@ class BookContainer extends React.Component {
         language: record.fields.language,
         progress: record.fields.progress,
         cover: record.fields.cover,
-        authors: [],
+        authors: this._mapAuthorsFromRecord(record),
         minimum_price: record.fields.minimum_price,
         suggested_price: record.fields.suggested_price,
         collected_amount: record.fields.collected_amount,
@@ -67,6 +69,30 @@ class BookContainer extends React.Component {
         subscribers: record.fields.subscribers
       })
     )
+  }
+
+  _mapAuthorsFromRecord(record) {
+    let authorsList = [];
+    const authors = record.fields.authors;
+    const names = record.fields['name (from authors)'];
+    const emails = record.fields['email (from authors)'];
+    const avatars = record.fields['avatar (from authors)'];
+    const abouts = record.fields['about (from authors)'];
+
+    if (!authors.length) {
+      return authorsList;
+    }
+
+    for (let i = 0; i < authors.length; i++) {
+      authorsList[i] = {
+        id: authors[i],
+        name: names[i],
+        email: emails[i],
+        avatar: avatars[i],
+        about: abouts[i]
+      }
+    }
+    return authorsList;
   }
 }
 
