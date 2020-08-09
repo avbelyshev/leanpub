@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BooksList from "../book/List";
+import BookContainer from "../book/Container";
 import SimilarBooksList from "../similar-book/List";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -10,7 +10,7 @@ const App = (props) => {
     <>
       <Header />
       <main style={styles.main}>
-        <BooksList books={props.books} />
+        <BookContainer />
         <SimilarBooksList books={props.books} />
       </main>
       <Footer />
