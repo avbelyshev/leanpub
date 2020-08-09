@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import SearchForm from "../layout/SearchForm";
 import BooksList from "../book/List";
 
 const API_TOKEN = 'keyWwTdPXTu7EXYHb';
@@ -17,7 +18,8 @@ class BookContainer extends React.Component {
     super(props);
 
     this.state = {
-      records: null
+      records: null,
+      searchQuery: ''
     }
 
     this._mapFromAirtable = this._mapFromAirtable.bind(this);
@@ -27,20 +29,41 @@ class BookContainer extends React.Component {
     this._fetchData();
   }
 
+  componentDidUpdate() {
+    if (!this.state.records) {
+      this._fetchData(this.state.searchQuery);
+    }
+  }
+
+  handleSearch(searchQuery) {
+    this.setState({
+      records: null,
+      searchQuery
+    })
+  }
+
   render() {
     const { records } = this.state;
 
     return (
-      records ?
-        <BooksList books={records} />
-        : <div>Loading...</div>
+      <>
+        <SearchForm handleSearch={searchQuery => this.handleSearch(searchQuery)} />
+        {
+          records ?
+            <BooksList books={records} />
+            : <div>Loading...</div>
+        }
+      </>
     )
   }
 
-  _fetchData() {
+  _fetchData(searchQuery) {
     httpClient.get('/books',{
-      maxRecords: 4,
-      view: 'Grid view'
+      params: {
+        maxRecords: 4,
+        view: 'Grid view',
+        filterByFormula: searchQuery && `SEARCH('${searchQuery}',LOWER({title}))`
+      }
     })
       .then(result => result.data)
       .then(this._mapFromAirtable)
