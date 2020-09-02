@@ -3,6 +3,7 @@ import axios from 'axios';
 import { zip, zipObject } from 'lodash';
 import SearchForm from "../layout/SearchForm";
 import BooksList from "../book/List";
+import withLoader from "../HOC/withLoader";
 
 const API_TOKEN = 'keyWwTdPXTu7EXYHb';
 
@@ -49,11 +50,7 @@ class BookContainer extends React.Component {
     return (
       <>
         <SearchForm handleSearch={searchQuery => this.handleSearch(searchQuery)} />
-        {
-          records ?
-            <BooksList books={records} />
-            : <div>Loading...</div>
-        }
+        <BooksList isLoading={!records} books={records} />
       </>
     )
   }
