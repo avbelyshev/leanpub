@@ -33,7 +33,7 @@ const BookCard = (props) => {
           <SubscriptionTerms />
         </div>
       </div>
-      <AuthorsList authors={authors} />
+      {(authors.length > 0) && <AuthorsList authors={authors} />}
       <FeedbackForm />
     </>
   )
