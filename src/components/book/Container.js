@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { zip, zipObject } from 'lodash';
 import SearchForm from "../layout/SearchForm";
 import BooksList from "../book/List";
 
@@ -107,13 +108,12 @@ class BookContainer extends React.Component {
     }
 
     for (let i = 0; i < authors.length; i++) {
-      authorsList[i] = {
-        id: authors[i],
-        name: names[i],
-        email: emails[i],
-        avatar: avatars[i],
-        about: abouts[i]
-      }
+      authorsList = zip(
+        authors, names, emails, avatars, abouts
+      ).map(record => zipObject(
+        ['id', 'name', 'email', 'avatar', 'about'],
+        record
+      ))
     }
     return authorsList;
   }
