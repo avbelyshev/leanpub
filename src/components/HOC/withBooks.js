@@ -1,9 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { zip, zipObject } from 'lodash';
+import { zip, zipObject } from "lodash";
 import SearchForm from "../layout/SearchForm";
-import BooksList from "../book/List";
-import withLoader from "../HOC/withLoader";
 
 const API_TOKEN = 'keyWwTdPXTu7EXYHb';
 
@@ -15,7 +13,7 @@ const httpClient = axios.create({
   }
 });
 
-class BookContainer extends React.Component {
+const withBooks = EnhancedComponent => class extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,7 +48,7 @@ class BookContainer extends React.Component {
     return (
       <>
         <SearchForm handleSearch={searchQuery => this.handleSearch(searchQuery)} />
-        <BooksList isLoading={!records} books={records} />
+        <EnhancedComponent isLoading={!records} books={records} />
       </>
     )
   }
@@ -114,6 +112,6 @@ class BookContainer extends React.Component {
     }
     return authorsList;
   }
-}
+};
 
-export default BookContainer;
+export default withBooks;

@@ -1,6 +1,7 @@
 import React from 'react';
 import BookCard from "./Card";
 import withLoader from "../HOC/withLoader";
+import withBooks from "../HOC/withBooks";
 
 const BooksList = (props) => {
   return (
@@ -14,7 +15,7 @@ const BooksList = (props) => {
   );
 }
 
-export default withLoader(BooksList);
+export default withBooks(withLoader(BooksList));
 
 const styles = {
   item: {
