@@ -17,13 +17,13 @@ const BookCard = (props) => {
       <Card>
         <Image src={cover} title={title} />
         <CardBody>
-          <Row style={styles.title}>{title}</Row>
+          <Row className={'font-bold text-xl'}>{title}</Row>
           <Row>{description}</Row>
           <Row>Pages: {pages}</Row>
           <Row>Language: {language}</Row>
-          <Row style={styles.price}>Minimum price: {minimum_price}</Row>
-          <Row style={styles.price}>Suggested price: {suggested_price}</Row>
-          <Row style={(subscribers >= 100) ? styles.popular : null}>
+          <Row className={'font-bold text-lg tracking-wider'}>Minimum price: {minimum_price}</Row>
+          <Row className={'font-bold text-lg tracking-wider'}>Suggested price: {suggested_price}</Row>
+          <Row className={(subscribers >= 100) ? 'font-bold text-red-700' : null}>
             Progress {progress}% ({collected_amount} of {expected_amount})
           </Row>
           <SubscriptionTerms />
@@ -38,60 +38,23 @@ const BookCard = (props) => {
 export default BookCard;
 
 const Card = ({ children }) => (
-  <div style={styles.container}>
+  <div className='flex'>
     {children}
   </div>
 )
 
 const Image = ({ src, alt }) => (
-  <div style={styles.imageBox}>
-    <img style={styles.image} src={src} alt={alt} />
+  <div className='w-1/5 flex flex-col items-center'>
+    <img className='w-full' src={src} alt={alt} />
   </div>
 )
 
 const CardBody = ({ children }) => (
-  <div style={styles.cardBody}>
+  <div className='flex-grow flex flex-col justify-evenly px-3 py-5'>
     {children}
   </div>
 )
 
-const Row = ({ style, children }) => (
-  <div style={style}>{children}</div>
+const Row = ({ className, children }) => (
+  <div className={className}>{children}</div>
 )
-
-const styles = {
-  container: {
-    display: 'flex',
-    fontFamily: 'sans-serif'
-  },
-  imageBox: {
-    maxWidth: '200px',
-    minHeight: '200px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center'
-  },
-  image: {
-    width: '100%'
-  },
-  cardBody: {
-    flex: '1',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-evenly',
-    padding: '15px 10px'
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: '1.1rem'
-  },
-  price: {
-    fontWeight: 'bold',
-    fontSize: '1.05rem',
-    letterSpacing: '.05rem'
-  },
-  popular: {
-    color: 'red',
-    fontWeight: 'bold',
-  }
-}
