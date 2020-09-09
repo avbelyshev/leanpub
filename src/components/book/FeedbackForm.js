@@ -17,17 +17,17 @@ const FeedbackForm = () => {
     <form onSubmit={(e) => handleSubmit(e)} style={styles.form}>
       <div>
         <label>Name </label>
-        <input type="text" id="name" />
+        <input className='border-2' type="text" id="name" />
       </div>
       <div>
         <label>Email </label>
-        <input type="email" id="email" />
+        <input className='border-2' type="email" id="email" />
       </div>
       <div>
         <label>Question </label>
-        <textarea id="question" />
+        <textarea className='border-2' id="question" />
       </div>
-      <button type="submit">Send</button>
+      <button className='border-2' type="submit">Send</button>
     </form>
   )
 }
