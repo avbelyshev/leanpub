@@ -38,14 +38,14 @@ const BookCard = (props) => {
 export default BookCard;
 
 const Card = ({ children }) => (
-  <div className='flex'>
+  <div className='flex flex-col sm:flex-row'>
     {children}
   </div>
 )
 
 const Image = ({ src, alt }) => (
-  <div className='w-1/5 flex flex-col items-center'>
-    <img className='w-full' src={src} alt={alt} />
+  <div className='max-w-xs w-full flex justify-center sm:flex-none sm:flex-col sm:w-1/2'>
+    <img className='w-1/2 sm:w-full' src={src} alt={alt} />
   </div>
 )
 
