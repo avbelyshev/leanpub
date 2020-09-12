@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from "react-helmet";
 import Layout from "../../layout/Layout";
 import BookCard from "../../book/Card";
 
@@ -10,6 +11,9 @@ const Book = ({ match: { params } }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{book ? `Leanpub - ${book.title}` : 'Loading...'}</title>
+      </Helmet>
       <BackButton />
       {book
         ? <BookCard book={book} />
