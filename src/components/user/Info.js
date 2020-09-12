@@ -5,48 +5,13 @@ import AuthContext from "../../context/AuthContext";
 const UserInfo = () => {
   const { firstName, lastName, avatarUrl } = useContext(AuthContext);
   return (
-    <div style={styles.container}>
-      <div style={styles.imageBox}>
-        <img style={styles.image} src={avatarUrl} />
+    <div className='col-span-1 flex-1 inline-flex text-center'>
+      <div className=''>
+        <img className='flex-1 rounded-full h-12 w-12 m-auto' src={avatarUrl} alt={firstName} />
       </div>
-      <div style={styles.cardBody}>
-        <div>{firstName} {lastName}</div>
-      </div>
+      <div className='flex-1 text-sm'>{firstName} {lastName}</div>
     </div>
   );
 }
 
 export default UserInfo;
-
-const styles = {
-  container: {
-    display: 'flex',
-    fontFamily: 'sans-serif',
-    justifyContent: 'right',
-    alignItems: 'right',
-    float: 'right',
-    fontSize: '0.9rem',
-  },
-  imageBox: {
-    borderRadius: '16px',
-    height: '32px',
-    lineHeight: '32px',
-    width: '32px',
-    backgroundColor: '#fff',
-    display: 'block',
-    fontSize: 0,
-    margin: 'auto',
-    overflow: 'hidden',
-    padding: 0,
-    textAlign: 'center',
-    verticalAlign: 'middle'
-  },
-  image: {
-    width: '100%'
-  },
-  cardBody: {
-    flex: '1',
-    display: 'flex',
-    flexDirection: 'column'
-  }
-}

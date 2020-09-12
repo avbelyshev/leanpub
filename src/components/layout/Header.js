@@ -5,27 +5,14 @@ import UserInfo from "../user/Info";
 const Header = () => {
   return (
     <>
-      <header style={styles.header}>
-        <span style={styles.appName}>Leanpub</span>
-        <UserInfo />
+      <header className='bg-teal-600 text-white'>
+        <div className='grid grid-cols-4 flex'>
+          <div className='col-span-3 flex-1 text-center align-middle font-bold text-xl'>Leanpub</div>
+          <UserInfo />
+        </div>
       </header>
     </>
   );
 }
 
 export default Header;
-
-const styles = {
-  header: {
-    backgroundColor: '#222222',
-    color: '#fff',
-    minHeight: '50px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  appName: {
-    fontSize: '1.2rem',
-    fontWeight: 'bold'
-  }
-};

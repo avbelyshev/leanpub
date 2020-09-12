@@ -15,8 +15,8 @@ class SearchForm extends React.Component {
   render() {
     return (
       <div style={styles.form}>
-        <input ref={this.searchInputRef} type='text' name='search' placeholder='Search...' />
-        <button onClick={this.handleSearch}>Search</button>
+        <input className='border-2' ref={this.searchInputRef} type='text' name='search' placeholder='Search...' />
+        <button className='border-2' onClick={this.handleSearch}>Search</button>
       </div>
     )
   }
