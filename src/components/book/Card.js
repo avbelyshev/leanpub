@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AuthorsList from "../author/List";
 import SubscriptionTerms from "./SubscriptionTerms";
 import FeedbackForm from "./FeedbackForm";
@@ -9,7 +10,7 @@ const BookCard = (props) => {
   }
 
   const {
-    book: { title, description, pages, language, progress, cover, authors, minimum_price, suggested_price, collected_amount, expected_amount, subscribers }
+    book: { id, title, description, pages, language, progress, cover, authors, minimum_price, suggested_price, collected_amount, expected_amount, subscribers }
   } = props;
 
   return (
@@ -17,7 +18,7 @@ const BookCard = (props) => {
       <Card>
         <Image src={cover} title={title} />
         <CardBody>
-          <Row className={'font-bold text-xl'}>{title}</Row>
+          <Row className={'font-bold text-xl'}><Link to={`/book/${id}`}>{title}</Link></Row>
           <Row>{description}</Row>
           <Row>Pages: {pages}</Row>
           <Row>Language: {language}</Row>

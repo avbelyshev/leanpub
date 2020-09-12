@@ -6,7 +6,7 @@ const API_TOKEN = 'keyWwTdPXTu7EXYHb';
 
 const httpClient = axios.create({
   baseURL: "https://api.airtable.com/v0/appNxubRl4TyOblnn",
-  timeout: 1000,
+  timeout: 2000,
   headers: {
     Authorization: `Bearer ${API_TOKEN}`,
   }
@@ -83,3 +83,16 @@ const useBooks = (searchQuery) => {
 };
 
 export default useBooks;
+
+export const useBook = (bookId) => {
+  const [record, setRecord] = useState(null);
+
+  useEffect(() => {
+    setRecord(null);
+    _fetchData().then(records => {
+      setRecord(records.filter(r => r.id === bookId)[0]);
+    });
+  }, [bookId]);
+
+  return record;
+};

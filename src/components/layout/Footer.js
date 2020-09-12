@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <>
-      <footer style={styles.footer}>
+      <footer className='px-32 mt-12'>
         &copy; {new Date().getFullYear()}, Belyshev Alexander
       </footer>
     </>
@@ -11,10 +11,3 @@ const Footer = () => {
 }
 
 export default Footer;
-
-const styles = {
-  footer: {
-    padding: '0 10%',
-    marginTop: '50px'
-  }
-};

@@ -10,7 +10,8 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
-    port: 9000
+    port: 9000,
+    historyApiFallback: true
   },
   output: {
     filename: '[name].js'
@@ -31,7 +32,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      base: '/'
     }),
     new MiniCssExtractPlugin()
   ]
