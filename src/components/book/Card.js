@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AuthorsList from "../author/List";
 import SubscriptionTerms from "./SubscriptionTerms";
 import FeedbackForm from "./FeedbackForm";
+import { bookPath } from "../../helpers/routes";
 
 const BookCard = (props) => {
   if (!props.book) {
@@ -18,7 +19,7 @@ const BookCard = (props) => {
       <Card>
         <Image src={cover} title={title} />
         <CardBody>
-          <Row className={'font-bold text-xl'}><Link to={`/book/${id}`}>{title}</Link></Row>
+          <Row className={'font-bold text-xl'}><Link to={bookPath(id)}>{title}</Link></Row>
           <Row>{description}</Row>
           <Row>Pages: {pages}</Row>
           <Row>Language: {language}</Row>
