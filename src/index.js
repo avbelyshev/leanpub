@@ -6,12 +6,11 @@ import AuthContext from "./context/AuthContext";
 
 import './index.css';
 
-import books from './db/books.json';
 import user from './db/user.json';
 
 ReactDom.render(
   <AuthContext.Provider value={user}>
-    <App books={books} />
+    <App />
   </AuthContext.Provider>,
   document.getElementById('root')
 );

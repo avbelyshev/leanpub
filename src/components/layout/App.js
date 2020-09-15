@@ -1,27 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import BookContainer from "../book/Container";
-import SimilarBooksList from "../similar-book/List";
-import Header from "./Header";
-import Footer from "./Footer";
+import Main from "../pages/Main";
+import Book from "../pages/Book";
+import NotFound from "../pages/NotFound";
+import { bookPath } from "../../helpers/routes";
 
-const App = (props) => {
-  return (
-    <>
-      <Header />
-      <main style={styles.main}>
-        <BookContainer />
-        <SimilarBooksList books={props.books} />
-      </main>
-      <Footer />
-    </>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route component={Main} path='/' exact />
+          <Route component={Book} path={bookPath()} strict exact />
+          <Route component={NotFound} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
-
-const styles = {
-  main: {
-    padding: '10px 10%'
-  }
-};
