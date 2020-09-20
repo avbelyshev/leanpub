@@ -16,7 +16,7 @@ function _fetchData(searchQuery) {
   return (
     httpClient.get('/books',{
       params: {
-        maxRecords: 4,
+        maxRecords: 10,
         view: 'Grid view',
         filterByFormula: searchQuery && `SEARCH('${searchQuery}',LOWER({title}))`
       }
@@ -54,7 +54,7 @@ function _mapAuthorsFromRecord(record) {
   const avatars = record.fields['avatar (from authors)'];
   const abouts = record.fields['about (from authors)'];
 
-  if (!authors.length) {
+  if ((authors === undefined) || !authors.length) {
     return authorsList;
   }
 
