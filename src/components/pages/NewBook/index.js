@@ -3,10 +3,11 @@ import { useForm } from 'react-hook-form';
 import cx from 'classnames';
 
 import Layout from "../../layout/Layout";
-import { createBook } from "../../../lib/client";
+import { createBook } from "../../../lib/createBook";
 
 import { useHistory } from "react-router-dom";
 import { bookPath } from "../../../helpers/routes";
+import AuthorSelect from "./authorsSelect";
 
 const NewBook = () => {
   const { register, handleSubmit } = useForm();
@@ -17,7 +18,8 @@ const NewBook = () => {
       ...fields,
       pages: parseFloat(fields.pages),
       minimum_price: parseFloat(fields.minimum_price),
-      suggested_price: parseFloat(fields.suggested_price)
+      suggested_price: parseFloat(fields.suggested_price),
+      authors: [fields.authors]
     }).then(res => {
       const bookId = res.records[0].id;
       const redirectURI = bookPath(bookId);
@@ -33,6 +35,7 @@ const NewBook = () => {
         <Field name='title' label='Title' register={register} />
         <Field name='description' type='textarea' className='w-full' label='Description' register={register} />
         <Field name='cover' label='Cover' register={register} />
+        <AuthorSelect name='authors' label='Author' register={register} />
         <Field name='pages' type='number' className='w-full' label='Pages' register={register} />
         <Field name='language' label='Language' register={register} />
         <Field name='minimum_price' type='number' className='w-full' label='Minimum price' register={register} />

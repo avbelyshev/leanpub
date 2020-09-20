@@ -1,20 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { zip, zipObject } from "lodash";
-
-const API_TOKEN = 'keyWwTdPXTu7EXYHb';
-
-const httpClient = axios.create({
-  baseURL: "https://api.airtable.com/v0/appNxubRl4TyOblnn",
-  timeout: 2000,
-  headers: {
-    Authorization: `Bearer ${API_TOKEN}`,
-  }
-});
+import httpClient from "../lib/httpClient";
 
 function _fetchData(searchQuery) {
   return (
-    httpClient.get('/books',{
+    httpClient().get('/books',{
       params: {
         maxRecords: 10,
         view: 'Grid view',
