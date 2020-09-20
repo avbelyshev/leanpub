@@ -9,8 +9,22 @@ import { useHistory } from "react-router-dom";
 import { bookPath } from "../../../helpers/routes";
 import AuthorSelect from "./authorsSelect";
 
+import { yupResolver } from '@hookform/resolvers';
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  title: yup.string().required(),
+  description: yup.string().min(5).max(1000).required(),
+  cover: yup.string().required(),
+  authors: yup.string().required(),
+  pages: yup.number().positive().integer().required(),
+  language: yup.string().required(),
+  minimum_price: yup.number().positive().integer().required(),
+  suggested_price: yup.number().positive().integer().required()
+});
+
 const NewBook = () => {
-  const { register, handleSubmit } = useForm();
+  const { errors, register, handleSubmit } = useForm({ resolver: yupResolver(schema) });
   const history = useHistory();
 
   const onSubmit = (fields) => {
@@ -32,14 +46,14 @@ const NewBook = () => {
     <Layout>
       <h1 className='text-3xl font-bold'>New book</h1>
       <form onSubmit={handleSubmit(onSubmit)} className='mt-5'>
-        <Field name='title' label='Title' register={register} />
-        <Field name='description' type='textarea' className='w-full' label='Description' register={register} />
-        <Field name='cover' label='Cover' register={register} />
-        <AuthorSelect name='authors' label='Author' register={register} />
-        <Field name='pages' type='number' className='w-full' label='Pages' register={register} />
-        <Field name='language' label='Language' register={register} />
-        <Field name='minimum_price' type='number' className='w-full' label='Minimum price' register={register} />
-        <Field name='suggested_price' type='number' className='w-full' label='Suggested price' register={register} />
+        <Field errors={errors} name='title' label='Title' register={register} />
+        <Field errors={errors} name='description' type='textarea' className='w-full' label='Description' register={register} />
+        <Field errors={errors} name='cover' label='Cover' register={register} />
+        <AuthorSelect errors={errors} name='authors' label='Author' register={register} />
+        <Field errors={errors} name='pages' type='number' defaultValue={0} className='w-full' label='Pages' register={register} />
+        <Field errors={errors} name='language' label='Language' register={register} />
+        <Field errors={errors} name='minimum_price' type='number' defaultValue={0} className='w-full' label='Minimum price' register={register} />
+        <Field errors={errors} name='suggested_price' type='number' defaultValue={0} className='w-full' label='Suggested price' register={register} />
         <button className='mt-3 bg-gray-700 px-3 py-2 text-white'>Add book</button>
       </form>
     </Layout>
@@ -48,7 +62,7 @@ const NewBook = () => {
 
 export default NewBook;
 
-const Field = ({ register, label, type, className, ...inputProps }) => {
+const Field = ({ errors, register, label, type, className, ...inputProps }) => {
   const Component = type === 'textarea' ? 'textarea' : 'input';
 
   return (
@@ -59,6 +73,7 @@ const Field = ({ register, label, type, className, ...inputProps }) => {
         ref={register}
         {...inputProps}
       />
+      {errors && errors[inputProps.name] && <span className='text-red-500'>{errors[inputProps.name].message}</span>}
     </div>
   );
 };
