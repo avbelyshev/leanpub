@@ -5,8 +5,12 @@ import cx from 'classnames';
 import Layout from "../../layout/Layout";
 import { createBook } from "../../../lib/client";
 
+import { useHistory } from "react-router-dom";
+import { bookPath } from "../../../helpers/routes";
+
 const NewBook = () => {
   const { register, handleSubmit } = useForm();
+  const history = useHistory();
 
   const onSubmit = (fields) => {
     return createBook({
@@ -15,8 +19,10 @@ const NewBook = () => {
       minimum_price: parseFloat(fields.minimum_price),
       suggested_price: parseFloat(fields.suggested_price)
     }).then(res => {
-      console.log(res);
-      return res;
+      const bookId = res.records[0].id;
+      const redirectURI = bookPath(bookId);
+
+      history.push(redirectURI);
     });
   };
 
