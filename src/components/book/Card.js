@@ -32,7 +32,7 @@ const BookCard = (props) => {
         </CardBody>
       </Card>
       {(authors.length > 0) && <AuthorsList authors={authors} />}
-      <FeedbackForm />
+      {props.showFeedbackForm && <FeedbackForm />}
     </>
   )
 }

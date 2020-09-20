@@ -16,7 +16,7 @@ const Book = ({ match: { params } }) => {
       </Helmet>
       <BackButton />
       {book
-        ? <BookCard book={book} />
+        ? <BookCard book={book} showFeedbackForm={true} />
         : <div>Loading...</div>
       }
     </Layout>
