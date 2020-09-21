@@ -25,7 +25,7 @@ function _mapFromAirtable(data) {
       pages: record.fields.pages,
       language: record.fields.language,
       progress: record.fields.progress,
-      cover: record.fields.cover,
+      cover: record.fields.cover[0].url,
       authors: _mapAuthorsFromRecord(record),
       minimum_price: record.fields.minimum_price,
       suggested_price: record.fields.suggested_price,
