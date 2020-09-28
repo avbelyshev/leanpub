@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { zip, zipObject } from "lodash";
-
-const API_TOKEN = 'keyWwTdPXTu7EXYHb';
-
-const httpClient = axios.create({
-  baseURL: "https://api.airtable.com/v0/appNxubRl4TyOblnn",
-  timeout: 2000,
-  headers: {
-    Authorization: `Bearer ${API_TOKEN}`,
-  }
-});
+import httpClient from "../lib/httpClient";
 
 function _fetchData(searchQuery) {
   return (
-    httpClient.get('/books',{
+    httpClient().get('/books',{
       params: {
-        maxRecords: 4,
+        maxRecords: 10,
         view: 'Grid view',
         filterByFormula: searchQuery && `SEARCH('${searchQuery}',LOWER({title}))`
       }
@@ -35,7 +25,7 @@ function _mapFromAirtable(data) {
       pages: record.fields.pages,
       language: record.fields.language,
       progress: record.fields.progress,
-      cover: record.fields.cover,
+      cover: record.fields.cover[0].url,
       authors: _mapAuthorsFromRecord(record),
       minimum_price: record.fields.minimum_price,
       suggested_price: record.fields.suggested_price,
@@ -54,7 +44,7 @@ function _mapAuthorsFromRecord(record) {
   const avatars = record.fields['avatar (from authors)'];
   const abouts = record.fields['about (from authors)'];
 
-  if (!authors.length) {
+  if ((authors === undefined) || !authors.length) {
     return authorsList;
   }
 
